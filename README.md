@@ -56,10 +56,3 @@ variant IDs (or `content_type = product_group`), which EasyPixel does not do yet
 Feed files are stored in `modules/easyproductfeed/feeds/` behind a deny-all `.htaccess` and are served only through a
 token-protected controller. The token is generated at install. Keep the feed and cron URLs private.
 (On nginx, `.htaccess` is ignored: add a `location ~ ^/modules/easyproductfeed/feeds/ { deny all; }` rule.)
-
-## Tested
-
-PHP syntax-linted on 8.3, and the generator and admin screens were exercised end to end against stubbed PrestaShop
-classes with all notices/warnings promoted to errors (feed output, XML well-formedness, primary/override ID parity,
-variants, price formats, input sanitising, validation). That validates the module's own logic, **not** the
-PrestaShop API calls themselves. Test on staging first.
