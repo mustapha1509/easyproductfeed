@@ -43,16 +43,6 @@ Override feeds apply exactly the same skip rules as the primary feed, so their I
 | Errors | Partly: own generation report (skipped products, missing images/GTIN/...) and an optional "Check Meta errors" button (Graph API) |
 | Product Sets, Instagram tagging, Shop tab, Dynamic Ads | Configured inside Meta (see guide). The module supplies the catalogue |
 
-## Things to verify on your first real upload
-
-I could not test against a live PrestaShop or a live Meta account, so please check:
-
-1. **Override codes.** For localized profiles, the "Override value" must be a code Meta supports (ISO country code such as `TN`; language codes per Meta's "Localized catalog" docs).
-2. **3-decimal currencies (TND, KWD...).** Prices follow PrestaShop's currency precision. If Meta rejects them, set *Price decimals = Always 2*.
-3. **Image type.** `large_default` must exist in your theme and be at least 500x500 px.
-4. **"Check Meta errors".** It reads the latest feed upload report through the Graph API. If Meta changes a field name, the button shows Meta's error message instead of failing silently.
-5. **Background generation** relies on your host letting a PHP request outlive the caller. If the host kills long requests, use the cron job (it has the same limit) or lower the batch size.
-
 ## Compatibility with EasyPixel (Dynamic Ads)
 
 Dynamic Ads only work if the pixel's `content_ids` equal the catalogue item IDs. EasyPixel currently sends the
